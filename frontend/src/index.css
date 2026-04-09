@@ -1,49 +1,171 @@
+/* --- 1. Global Reset & Variables --- */
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-body: #f8fafc;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
 body {
-  margin: 0;
-  font-family: Arial;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
 }
 
-.welcomebox {
-  background: linear-gradient(to right, #ff7e5f, #feb47b);
-  color: rgba(161, 240, 71, 0.277);
-  text-align: center;
-  padding: 50px;
+/* --- 2. Navigation Bar --- */
+nav {
+    background: var(--white);
+    padding: 1rem 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  background: black;
-  color: white;
-  padding: 10px;
+nav h2 {
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 0.8rem;
 }
 
-.navbar ul {
-  display: flex;
-  list-style: none;
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    list-style: none;
 }
 
-.navbar li {
-  margin: 10px;
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
 }
 
-.navbar a {
-  color: white;
-  text-decoration: none;
+nav ul li a:hover {
+    color: var(--primary);
+}
+
+/* --- 3. Main Content & Text Alignment --- */
+main, .container {
+    flex: 1; /* Pushes footer to bottom */
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    width: 100%;
+    text-align: center; /* Ensures all general text is centered */
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+}
+
+p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+/* --- 4. Cards for Education & Skills --- */
+ul:not(nav ul) {
+    list-style: none;
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+ul:not(nav ul) li {
+    background: var(--white);
+    padding: 1.25rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-align: left; /* Keeps list content neat but centered on page */
+}
+
+ul:not(nav ul) li:hover {
+    transform: translateY(-3px);
 }
 
 .navbar a:hover {
   text-decoration: underline;
   font-size: 16.5px;
-  color:aqua;
+  color:#2563eb;
 }
 
-.footer {
-  background: black;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+/* --- 5. Weather Search Bar --- */
+.weather-search {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 2.5rem 0;
+}
+
+input[type="text"] {
+    padding: 12px 24px;
+    width: 100%;
+    max-width: 350px;
+    border: 2px solid #e2e8f0;
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+/* --- 6. Footer --- */
+footer {
+    background: #0f172a;
+    color: #94a3b8;
+    text-align: center;
+    font-size: 0.875rem;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
